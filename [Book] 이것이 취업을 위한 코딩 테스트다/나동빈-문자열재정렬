@@ -1,0 +1,14 @@
+n = input()
+
+alpha = []
+val = 0
+
+for i in range( len(n)):
+  if n[i].isalpha() == True:
+    alpha += n[i]
+  else:
+    val += int(n[i])
+
+alpha.sort()
+
+print(''.join(alpha) + str(val))
