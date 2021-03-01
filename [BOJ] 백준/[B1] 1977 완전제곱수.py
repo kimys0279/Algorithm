@@ -37,4 +37,21 @@ else:
     print(sum(arr))
     print(arr[0])
 
-
+    
+'''
+시간초과코드
+def findpow(a, b):
+    arr = []
+    for i in range(a+1, b+1):
+        for j in range(b):
+            if i == j**2:
+                arr.append(j**2)
+    if arr.count == 0:
+        return print(-1)
+    else:
+        return print(sum(arr)), print(min(arr))
+    
+m = int(input())
+n = int(input())
+findpow(m, n)
+'''
