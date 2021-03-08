@@ -22,3 +22,4 @@ for i in range(n):
     num += a-1
 
 
+print(num)
