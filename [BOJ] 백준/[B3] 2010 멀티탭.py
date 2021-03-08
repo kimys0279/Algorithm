@@ -13,13 +13,13 @@
 1
 예제 출력 1 
 1'''
+import sys
+input = sys.stdin.readline
 
 n = int(input())
 num = 1
 
 for i in range(n):
-    a = int(input())
-    num += a-1
-
+    num += int(input()) - 1
 
 print(num)
