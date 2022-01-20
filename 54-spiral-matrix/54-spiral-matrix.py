@@ -6,9 +6,9 @@ class Solution(object):
         """
         left, right = 0, len(matrix[0]) - 1
         top, bottom = 0, len(matrix) - 1
-        
+
         ans = []
-        
+
         while True:
             #top go right
             ans.extend(matrix[top][x] for x in range(left, right + 1))
@@ -39,4 +39,3 @@ class Solution(object):
                 break
                     
         return ans
-            
