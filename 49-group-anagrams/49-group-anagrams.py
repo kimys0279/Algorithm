@@ -15,5 +15,4 @@ class Solution(object):
         for key, val in strdic.items():
             ans.append(val)
             
-        print(ans)
         return ans
