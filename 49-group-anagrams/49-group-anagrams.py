@@ -1,24 +1,19 @@
 class Solution(object):
     def groupAnagrams(self, strs):
-        """
-        :type strs: List[str]
-        :rtype: List[List[str]]
-        """
-        def stringtolist(str):
-            arr = [0] * 26
-            for char in str:
-                arr[ord(char) - ord('a')] += 1
-            return tuple(arr)
-        
-        tup = {}
         ans = []
+        strdic = {}
         
-        for str in strs:
-            li = stringtolist(str)
-            if li in tup:
-                ans[tup[li]].append(str)
+        for i in strs:
+            a = ''.join(sorted(i))
+            print(a)
+            
+            if a in strdic:
+                strdic[a].append(i)
             else:
-                ans.append([str])
-                tup[li] = len(ans) - 1
+                strdic[a] = [i]
+                
+        for key, val in strdic.items():
+            ans.append(val)
+            
+        print(ans)
         return ans
-    
