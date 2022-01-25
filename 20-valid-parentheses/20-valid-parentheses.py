@@ -13,4 +13,4 @@ class Solution(object):
             else:
                 return False
             
-        return stack == []
+        return len(stack) == 0
