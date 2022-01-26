@@ -1,5 +1,11 @@
 class Solution(object):
     def isPalindrome(self, s):
         
-        newS = [i.lower() for i in s if i.isalnum()]
-        return newS == newS[::-1]
+        new = ''
+        s = s.lower()
+        
+        for i in s:
+            if i.isalnum():
+                new = new + i
+                
+        return new == new[::-1]
