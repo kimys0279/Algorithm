@@ -20,4 +20,4 @@ class Solution(object):
                 if nums[mid] <= target <= nums[high]:
                     low = mid + 1
                 else:
-                    high = mid - 1
+                    high = mid - 1        
