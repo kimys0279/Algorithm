@@ -1,5 +1,5 @@
 class Solution(object):
-    def isValid(self, s):
+    def isValid1(self, s):
         
         stack = []
         dic = {")":"(", "}":"{", "]":"["}
