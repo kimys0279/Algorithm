@@ -1,8 +1,25 @@
 class Solution(object):
-    def search2(self, nums, target):
-        begin, end = 0, len(nums) - 1
-        while begin <= end:
-            mid = (begin + end) // 2
+    def search(self, nums, target):
+        l, h = 0, len(nums) - 1
+        while l <= h:
+            mid = (l + h) // 2
+            if nums[mid] == target:
+                return True
+            
+            if nums[mid] == nums[l]:
+                l += 1
+            
+            elif nums[mid] > nums[h]:
+                if nums[l] <= target < nums[mid]:
+                    h = mid - 1
+                else:
+                    l = mid + 1
+            else:
+                if nums[mid] < target <= nums[h]:
+                    l = mid + 1
+                else:
+                    h = mid - 1
+        return False
         
         
     
@@ -16,7 +33,7 @@ class Solution(object):
             return True
         return False
     
-    def search(self, nums, target):
+    def search2(self, nums, target):
         if not nums:
             return False
         
