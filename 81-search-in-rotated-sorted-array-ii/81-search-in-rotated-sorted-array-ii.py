@@ -6,8 +6,8 @@ class Solution(object):
             if nums[mid] == target:
                 return True
             
-            if nums[mid] == nums[l]:
-                l += 1
+            if nums[mid] == nums[h]:
+                h -= 1
             
             elif nums[mid] > nums[h]:
                 if nums[l] <= target < nums[mid]:
