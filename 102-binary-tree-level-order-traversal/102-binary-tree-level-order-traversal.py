@@ -9,17 +9,17 @@ class Solution(object):
         if not root:
             return []
         
-        queue = deque([root])
-        num = []
-        while queue:
-            curr_level = []
-            for _ in range(len(queue)):
-                children = queue.popleft()
-                if children.left:
-                    queue.append(children.left)
-                if children.right:
-                    queue.append(children.right)
-                curr_level.append(children.val)
-            num.append(curr_level)
-        return num
+        q = collections.deque([root])
+        ans = []
+        while q:
+            level = []
+            for _ in range(len(q)):
+                node = q.popleft()
+                if node:
+                    level.append(node.val)
+                    q.append(node.left)
+                    q.append(node.right)
+            if level:
+                ans.append(level)
+        return ans
     
