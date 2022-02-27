@@ -22,3 +22,4 @@ class Solution(object):
                 curr_level.append(children.val)
             num.append(curr_level)
         return num
+    
