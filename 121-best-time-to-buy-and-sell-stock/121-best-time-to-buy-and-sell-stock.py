@@ -25,6 +25,6 @@ class Solution(object):
         for buy in prices[::-1]:
             if sell - buy > profit:
                 profit = sell - buy
-            if buy > sell:
+            if sell < buy:
                 sell = buy
         return profit
