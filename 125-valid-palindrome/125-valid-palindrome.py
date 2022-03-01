@@ -1,6 +1,6 @@
 class Solution(object):
-    def isPalindrome(self, s):
-        
+    
+    def isPalindrome1(self, s):
         if len(str(s)) == 0:
             return True
         
@@ -10,11 +10,9 @@ class Solution(object):
         for i in s:
             if i.isalnum():
                 new = new + i
-            
         return new == new[::-1]
     
     
-    
     def isPalindrome(self, s):
         if len(str(s)) == 0:
             return True
@@ -24,5 +22,5 @@ class Solution(object):
         
         for i in s:
             if i.isalnum():
-                new = new + i
+                new = new+i
         return new == new[::-1]
