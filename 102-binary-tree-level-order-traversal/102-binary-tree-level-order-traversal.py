@@ -4,22 +4,71 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+
 class Solution(object):
-    def levelOrder(self, root):
+    def levelOrder1(self, root):
         if not root:
             return []
         
-        q = collections.deque([root])
         ans = []
+        q = collections.deque([root])
+        
         while q:
             level = []
-            for _ in range(len(q)):
+            for i in range(len(q)):
                 node = q.popleft()
                 if node:
                     level.append(node.val)
                     q.append(node.left)
                     q.append(node.right)
             if level:
+              ans.append(level)
+            
+        return ans
+    
+    
+    
+    def levelOrder(self, root):
+        if not root:
+            return []
+        
+        q = collections.deque([root])
+        ans = []
+        
+        while q:
+            level = []
+            for i in range(len(q)):
+                node = q.popleft()
+                if node:
+                    level.append(node.val)
+                    q.append(node.left)
+                    q.append(node.right)
+                    
+            if level:
                 ans.append(level)
         return ans
+        
+        
+        
+        
+        
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
