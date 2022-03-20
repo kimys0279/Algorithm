@@ -1,9 +1,12 @@
 class Solution(object):
     def topKFrequent(self, words, k):
-        d = {}
-        for word in words:
-            d[word] = d.get(word, 0) + 1
+        dict = {}
         
-        ret = sorted(d, key = lambda word: (-d[word], word))
+        for x in words:
+            if x in dict:
+                dict[x] += 1
+            else:
+                dict[x] = 1
         
-        return ret[:k]
+        res = sorted(dict, key = lambda x: (-dict[x], x))
+        return res[:k]
