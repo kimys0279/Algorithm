@@ -2,7 +2,6 @@ class Solution(object):
     def eraseOverlapIntervals1(self, intervals):
         if len(intervals) == 0:
             return 0
-        
         intervals.sort(key = lambda x: (x[0], x[1]))
         cnt = 0
         loopend = intervals[0][1]
