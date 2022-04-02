@@ -11,13 +11,13 @@ class Solution(object):
                 d1 += player
             if r + c == 2:
                 d2 += player
-           
-            if abs(rows[r]) == 3 or abs(cols[c]) == 3 or abs(d1) == 3 or abs(d2) == 3:
-                if player == 1:
-                    return 'A'
-                else:
-                    return 'B'
             player *= -1
+            
+        if abs(rows[r]) == 3 or abs(cols[c]) == 3 or abs(d1) == 3 or abs(d2) == 3:
+            if player == -1:
+                return 'A'
+            else:
+                return 'B'
             
         if len(moves) == 9:
             return 'Draw'
