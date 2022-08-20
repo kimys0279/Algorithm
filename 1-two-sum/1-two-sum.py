@@ -8,5 +8,6 @@ class Solution(object):
             
         for i in range(len(nums)):
             contemplate = target - nums[i]
+            
             if contemplate in hashmap and hashmap[contemplate] != i:
                 return [i, hashmap[contemplate]]
