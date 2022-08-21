@@ -1,14 +1,14 @@
 class Solution(object):
     def lengthOfLongestSubstring(self, s):
-        dic, res, j = {}, 0, 0
+        start = maxLength = 0
+        usedChar = {}
         
         for i in range(len(s)):
-            if s[i] not in dic:
-                dic[s[i]] = i
-        
+            if s[i] in usedChar and start <= usedChar[s[i]]:
+                start = usedChar[s[i]] + 1
             else:
-                j = max(j, dic[s[i]] + 1)
-                dic[s[i]] = i
-            res = max(res, i - j + 1)
+                maxLength = max(maxLength, i - start + 1)
             
-        return res
+            usedChar[s[i]] = i
+        
+        return maxLength
