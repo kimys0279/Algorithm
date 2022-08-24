@@ -1,14 +1,17 @@
 class Solution(object):
     def longestPalindrome(self, s):
-        ans = ''
-        max_len = 0
-        dp = [[0] * len(s) for _ in range(len(s))]
+        if len(s) == 0:
+            return 0
+        maxLen = 1
+        start = 0
         
-        for i in range(len(s) - 1, -1, -1):
-            for j in range(i, len(s)):
-                if s[i] == s[j] and (j - i < 3 or dp[i+1][j-1] == 1):
-                    dp[i][j] = 1
-                    if ans == '' or max_len < j - i + 1:
-                        ans = s[i:j+1]
-                        max_len = j - i + 1
-        return ans
+        for i in range(len(s)):
+            if i-maxLen >= 1 and s[i-maxLen-1:i+1] == s[i-maxLen-1 : i+1][::-1]:
+                start = i-maxLen-1
+                maxLen += 2
+                continue
+            if i-maxLen >= 0 and s[i-maxLen:i+1] == s[i-maxLen:i+1][::-1]:
+                start = i-maxLen
+                maxLen += 1
+        
+        return s[start:start+maxLen]
