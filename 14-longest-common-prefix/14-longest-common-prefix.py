@@ -6,13 +6,10 @@ class Solution(object):
         """
         if not strs:
             return ""
-        # res = ""
         
         shortest = min(strs, key = len)
-        
         for i, c in enumerate(shortest):
-            for other in strs:
-                if other[i] != c:
+            for others in strs:
+                if others[i] != c:
                     return shortest[:i]
-        
         return shortest
