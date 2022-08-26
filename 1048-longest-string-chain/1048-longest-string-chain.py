@@ -1,21 +1,21 @@
 class Solution(object):
     def longestStrChain(self, words):
-        s = set(words)
-        memo = {}
+        """
+        :type words: List[str]
+        :rtype: int
+        """
+        words.sort(key=len)
+        dic = {}
         
-        def rec(word):
-            if word not in s: return 0
-            if word in memo:
-                return memo[word]
-            else:
-                N = len(word)
-                mx = 0
-                for i in range(N):
-                    mx = max(mx, rec(word[:i]+word[i+1:])+1)
-                memo[word] = mx
-            return mx
+        for i in words:
+            dic[ i ] = 1
+            
+            for j in range(len(i)):
+                
+                # creating words by deleting a letter
+                successor = i[:j] + i[j+1:]
+                if successor in dic:
+                    dic[ i ] = max (dic[i], 1 + dic[successor])
         
-        for w in words:
-            rec(w)
-        
-        return max(memo.values())
+        res = max(dic.values())
+        return res
