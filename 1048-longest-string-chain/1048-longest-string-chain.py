@@ -4,18 +4,34 @@ class Solution(object):
         :type words: List[str]
         :rtype: int
         """
-        words.sort(key=len)
+        if not words:
+            return 0
+        
+        words.sort(key = len)
         dic = {}
         
         for i in words:
-            dic[ i ] = 1
-            
+            dic[i] = 1
             for j in range(len(i)):
+                predecessor = i[:j] + i[j+1:]
                 
-                # creating words by deleting a letter
-                successor = i[:j] + i[j+1:]
-                if successor in dic:
-                    dic[ i ] = max (dic[i], 1 + dic[successor])
+                if predecessor in dic:
+                    dic[i] = max(dic[i], 1 + dic[predecessor])
+                    
+        return max(dic.values())
+    
+#         words.sort(key=len)
+#         dic = {}
         
-        res = max(dic.values())
-        return res
+#         for i in words:
+#             dic[ i ] = 1
+            
+#             for j in range(len(i)):
+                
+#                 # creating words by deleting a letter
+#                 successor = i[:j] + i[j+1:]
+#                 if successor in dic:
+#                     dic[ i ] = max (dic[i], 1 + dic[successor])
+        
+#         res = max(dic.values())
+#         return res
