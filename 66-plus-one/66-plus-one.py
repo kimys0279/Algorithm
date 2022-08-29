@@ -1,31 +1,15 @@
-class Solution(object):
-    def plusOne1(self, digits):
-        digits[-1] += 1
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        num = 0
+        li = []
+        for i in range(len(digits)):
+            num += digits[-(i+1)] * 10**i
         
-        for i in range(len(digits) - 1, 0, -1):
-            if digits[i] != 10:
-                break
-            digits[i] = 0
-            digits[i - 1] += 1
-            
-        if digits[0] == 10:
-            digits[0] = 0
-            return [1] + digits
+        num += 1
         
-        return digits
-    
-    
-    def plusOne(self, digits):
-        digits[-1] += 1
+        for _ in range(len(str(num))):
+            li.append(num%10)
+            num = num//10
         
-        for i in range(len(digits) - 1, 0, -1):
-            if digits[i] != 10:
-                break
-            digits[i] = 0
-            digits[i-1] += 1
-            
-        if digits[0] == 10:
-            digits[0] = 0
-            return [1] + digits
+        return li[::-1]
         
-        return digits
