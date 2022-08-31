@@ -1,11 +1,11 @@
-class Solution(object):
-    def twoSum(self, nums, target):
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
         
         hashmap = {}
         
         for i in range(len(nums)):
             hashmap[nums[i]] = i
-            
+        
         for i in range(len(nums)):
             contemplate = target - nums[i]
             
