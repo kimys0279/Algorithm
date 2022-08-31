@@ -1,30 +1,11 @@
-class Solution(object):
-
-    def maxProfit1(self, prices):
-        if len(prices) == 0:
-            return 0
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
         
-        max = prices[-1]
-        profit = 0
+        max_profit, min_price = 0, float('inf')
         
-        for item in prices[::-1]:
-            if max - item > profit:
-                profit = max - item
-            if item > max:
-                max = item
-        return profit
-    
-    
-    def maxProfit(self, prices):
-        if len(prices) == 0:
-            return 0
-        
-        sell = prices[-1]
-        profit = 0
-        
-        for buy in prices[::-1]:
-            if sell - buy > profit:
-                profit = sell - buy
-            if sell < buy:
-                sell = buy
-        return profit
+        for i in prices:
+            min_price = min(min_price, i)
+            profit = i - min_price
+            max_profit = max(max_profit, profit)
+            
+        return max_profit
