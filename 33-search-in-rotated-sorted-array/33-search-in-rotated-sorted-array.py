@@ -1,61 +1,19 @@
-class Solution(object):
-    def search(self, nums, target):
-        if not nums or target not in nums:
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        if target not in nums:
             return -1
         return nums.index(target)
-    
-    def search1(self, nums, target):
-        if not nums or target not in nums:
-            return -1
         
-        l, r = 0, len(nums) - 1
+#         l, r = 0, len(nums)
         
-        while l <= r:
-            m = (l + r) //2
+#         while True:
+#             mid = l + r // 2
             
-            if nums[m] == target:
-                return m
+#             if mid == target:
+#                 return mid
             
-            elif nums[l] <= nums[m]:
-                if nums[l] <= target <= nums[m]:
-                    r = m - 1
-                else:
-                    l = m + 1
+#             elif mid > target:
+#                 l = mid
             
-            else:
-                if nums[m] <= target <= nums[r]:
-                    l = m + 1
-                else:
-                    r = m - 1
-            
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+#             else:
+#                 r = mid
