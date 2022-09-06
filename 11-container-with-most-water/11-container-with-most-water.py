@@ -1,17 +1,13 @@
-class Solution(object):
-    def maxArea(self, height):
-        """
-        :type height: List[int]
-        :rtype: int
-        """
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        maxi = 0
         l, r = 0, len(height) - 1
-        maxVol = 0
-        
-        for i in range(len(height)-1, 0, -1):
-            if height[l] > height[r]:
-                maxVol = max(maxVol, i*height[r])
+        for i in range(len(height) - 1, 0, -1):
+            if height[l] >= height[r]:
+                maxi = max(maxi, height[r]*i)
                 r -= 1
             else:
-                maxVol = max(maxVol, i*height[l])
-                l += 1
-        return maxVol
+                maxi = max(maxi, height[l]*i)
+                l += 1       
+        
+        return maxi
