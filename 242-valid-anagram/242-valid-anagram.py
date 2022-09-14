@@ -1,21 +1,19 @@
-class Solution(object):
-    def isAnagram(self, s, t):
-        slist = []
-        tlist = []
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
         
-        if len(s) != len(t): return False
+        dic_s = {}
+        dic_t = {}
         
-        for i in range(len(s)):
-            slist.append(s[i])
-            
-        for j in range(len(t)):
-            tlist.append(t[j])
+        for i in s:
+            if i not in dic_s:
+                dic_s[i] = 1
+            dic_s[i] += 1
         
-        for com in slist:
-            if com not in tlist:
-                return False
-            else:
-                tlist.remove(com)
-                
-        return True
-            
+        for i in t:
+            if i not in dic_t:
+                dic_t[i] = 1
+            dic_t[i] += 1
+        
+        return dic_s == dic_t
