@@ -1,18 +1,11 @@
-class Solution(object):
-    def groupAnagrams(self, strs):
-        ans = []
-        strdic = {}
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        map_dict = {}
+        for i, string in enumerate(strs):
+            tmp = ("").join(sorted(string))
+            try:
+                map_dict[tmp].append(string)
+            except:
+                map_dict[tmp] = [string]
         
-        for i in strs:
-            a = ''.join(sorted(i))
-            print(a)
-            
-            if a in strdic:
-                strdic[a].append(i)
-            else:
-                strdic[a] = [i]
-                
-        for key, val in strdic.items():
-            ans.append(val)
-            
-        return ans
+        return map_dict.values()
