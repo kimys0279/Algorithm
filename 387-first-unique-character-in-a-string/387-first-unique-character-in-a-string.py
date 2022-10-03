@@ -1,6 +1,11 @@
-class Solution(object):
-    def firstUniqChar(self, s):
-        for i in range(len(s)):
-            if s[i] not in s[:i] and s[i] not in s[i+1:]:
-                return i
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        hashmap = {}
+        for i in s:
+            hashmap[i] = hashmap.get(i, 0) + 1
+        
+        for i in hashmap:
+            if hashmap[i] == 1:
+                return s.index(i)
+        
         return -1
