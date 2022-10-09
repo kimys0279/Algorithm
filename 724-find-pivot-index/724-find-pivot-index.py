@@ -1,10 +1,11 @@
-class Solution(object):
-    def pivotIndex(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
-        for i in range(len(nums)):
-            if sum(nums[:i]) == sum(nums[i+1:]):
-                return i
-        return -1
+class Solution:
+    def pivotIndex(self, nums: List[int]) -> int:
+        left, right = 0, sum(nums)
+        for index, num in enumerate(nums):
+            right -= num
+            
+            if left == right:
+                return index
+            
+            left += num
+        return -1            
